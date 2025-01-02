@@ -1,0 +1,24 @@
+import pandas as pd
+data = {
+    "school": ["ABC High", "XYZ Academy", "ABC High", "XYZ Academy", "LMN School", "ABC High"],
+    "class": ["10th", "9th", "10th", "8th", "10th", "9th"],
+    "name": ["John Doe", "Alice Smith", "Bob Johnson", "Charlie Brown", "David Lee", "Eve Adams"],
+    "dateofbirth": ["2005-05-14", "2006-08-19", "2005-07-22", "2007-03-10", "2005-12-01", "2006-01-15"],
+    "age": [18, 17, 18, 16, 18, 17],
+    "height": [170, 160, 172, 165, 180, 158],
+    "weight": [60, 55, 65, 58, 70, 50],
+    "address": [
+        "123 Main St, City A",
+        "456 Park Ave, City B",
+        "789 Broadway, City A",
+        "321 Maple Rd, City C",
+        "654 Pine St, City D",
+        "987 Oak St, City A"
+    ],
+}
+df = pd.DataFrame(data)
+grouped = df.groupby(["school", "class"])
+for group_name, group_data in grouped:
+    print(f"Group: {group_name}")
+    print(group_data, end="\n\n")
+print(f"Type of grouped object: {type(grouped)}")
